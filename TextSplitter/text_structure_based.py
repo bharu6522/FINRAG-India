@@ -1,0 +1,21 @@
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size = 100,
+    chunk_overlap = 0
+)
+
+text = """The LangChain TextLoader is a document loader specifically designed to load documents from plain text files. It is a fundamental component within LangChain's document loading ecosystem, providing a straightforward way to ingest textual data for use with Language Models (LLMs) and other LangChain components.
+Here's a breakdown of its key aspects:
+1. Purpose:
+The primary purpose of TextLoader is to read the content of a text file and convert it into a LangChain Document object. This Document object encapsulates the page_content (the text from the file) and potentially metadata (like the source file path).
+2. Usage:
+You instantiate the TextLoader by providing the path to the text file you want to load.
+You then call the load() method on the loader object to read the file and retrieve a list of Document objects. For a single text file, this list will typically contain one Document."""
+
+
+result  = splitter.split_text(text)
+
+print(len(result))
+
+print(result)
