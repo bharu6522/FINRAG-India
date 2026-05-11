@@ -10,6 +10,11 @@ client = OpenAI(api_key= os.environ["OPENAI_API_KEY"])
 embed_model = "text-embedding-3-small"
 chunks_file = "chunks.json"
 store_dir = "vector_store"
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+store_dir = os.path.join(BASE_DIR, "store_dir")
+
+
 batch_size = 50 
 
 def embed_texts(texts: list[str]) -> list[list[float]] :
