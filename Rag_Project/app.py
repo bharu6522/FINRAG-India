@@ -152,7 +152,7 @@ html, body, [class*="css"] {
 # ── Helpers ────────────────────────────────────────────────────────────────
 
 
-STORE_DIR   = "vector_store"
+STORE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "vector_store")
 EMBED_MODEL = "text-embedding-3-small"
 GPT_MODEL   = "gpt-4o-mini"
 
@@ -551,9 +551,13 @@ with tab_about:
     # ── Setup Checklist ────────────────────────────────────────────────────
     st.markdown("### ✅ Setup Checklist")
 
-    store_ok   = os.path.exists("vector_store/index.faiss")
-    meta_ok    = os.path.exists("vector_store/metadata.json")
-    pdf_ok     = os.path.exists("pdfs") and len(os.listdir("pdfs")) > 0 if os.path.exists("pdfs") else False
+    # store_ok   = os.path.exists("vector_store/index.faiss")
+    # meta_ok    = os.path.exists("vector_store/metadata.json")
+
+    store_ok   = os.path.exists(os.path.join(STORE_DIR, "index.faiss"))
+    meta_ok    = os.path.exists(os.path.join(STORE_DIR, "metadata.json"))
+    
+    pdf_ok     = os.path.exists(os.path.join(BASE_DIR, "pdfs")) and len(os.listdir("pdfs")) > 0 if os.path.exists("pdfs") else False
     api_key_ok = bool(st.session_state.get("api_key") or os.environ.get("OPENAI_API_KEY"))
 
     def check(ok, label, fix):
