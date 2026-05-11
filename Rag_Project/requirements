@@ -12,6 +12,7 @@ google-generativeai
 langchain-huggingface
 transformers 
 huggingface-hub
+faiss-cpu
 
 python-dotenv
 
