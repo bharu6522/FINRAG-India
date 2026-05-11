@@ -6,7 +6,8 @@ import streamlit as st
 from openai import OpenAI
 import numpy as np
 import faiss
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+store_dir = os.path.join(BASE_DIR, "vector_store")
 # ── Page config (must be first Streamlit call) ─────────────────────────────
 st.set_page_config(
     page_title="FinRAG — Financial Document Intelligence",
@@ -150,9 +151,8 @@ html, body, [class*="css"] {
 
 # ── Helpers ────────────────────────────────────────────────────────────────
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-store_dir = os.path.join(BASE_DIR, "vector_store")
 
+STORE_DIR   = "vector_store"
 EMBED_MODEL = "text-embedding-3-small"
 GPT_MODEL   = "gpt-4o-mini"
 
