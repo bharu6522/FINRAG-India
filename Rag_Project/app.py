@@ -149,7 +149,10 @@ html, body, [class*="css"] {
 
 
 # ── Helpers ────────────────────────────────────────────────────────────────
-STORE_DIR   = "vector_store"
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+store_dir = os.path.join(BASE_DIR, "vector_store")
+
 EMBED_MODEL = "text-embedding-3-small"
 GPT_MODEL   = "gpt-4o-mini"
 
